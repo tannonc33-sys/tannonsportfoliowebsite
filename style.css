@@ -345,7 +345,7 @@ main {
 }
 
 .hero-card-tag {
-  margin-left: 50%;
+  margin-left: 0 auto;
   padding: 0.28rem 0.7rem;
   border-radius: 999px;
   font-size: 0.72rem;
