@@ -389,7 +389,7 @@ main {
 /* FOOTER */
 
 footer {
-  background: var(--accent-dark);
+  background: var(--bg-soft);
   border-top: 1px solid var(--border);
 }
 
