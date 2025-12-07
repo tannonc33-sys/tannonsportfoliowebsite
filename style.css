@@ -35,6 +35,16 @@ body {
   line-height: 1.7;
 }
 
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg-main);
+  color: var(--text);
+  line-height: 1.7;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 /* GENERAL */
 a {
   color: inherit;
@@ -48,13 +58,17 @@ img {
 
 /* LAYOUT */
 main {
-  min-height: calc(100vh - 52px); /* leave room for footer */
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .page {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 5.5rem 1.5rem 3rem; /* top for nav, bottom for breathing room */
+  padding: 2rem 1.5rem; /* much smaller top padding */
+  width: 100%;
 }
 
 /* ===== NAVBAR (completely transparent) ===== */
@@ -167,6 +181,7 @@ main {
   grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
   gap: 3rem;
   align-items: center;
+  margin-top: 3rem;
 }
 
 .hero-left {
