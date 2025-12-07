@@ -393,7 +393,7 @@ main {
 /* FOOTER */
 
 footer {
-  background: var(--purple-deep);
+  background: var(--bg-soft);
   border-top: 1px solid var(--border);
 }
 
