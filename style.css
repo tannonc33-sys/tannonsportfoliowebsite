@@ -1,5 +1,5 @@
 :root {
-  --bg-main: #120d1f;
+  --bg-main: #a387cf;
   --bg-soft: #1a1329;
   --purple-deep: #231332;
   --accent: #8b5cf6;
@@ -35,7 +35,6 @@ body {
   background: var(--bg-main);
   color: var(--text);
   line-height: 1.7;
-
   display: flex;
   flex-direction: column;
   min-height: 100vh;
