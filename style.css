@@ -459,12 +459,10 @@ footer {
   color: var(--accent);
 }
 
-/* ABOUT PAGE SECTION LAYOUT */
-.about-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 3rem; /* adjust spacing here */
-  align-items: start;
+/* about page specific styles */
+
+.grid-2{
+  margin-right: 10px;
 }
 
 /* Portfolio viewer "nested sub-site" */
