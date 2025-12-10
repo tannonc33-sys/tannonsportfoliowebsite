@@ -46,6 +46,15 @@ a {
   text-decoration: none;
 }
 
+/* Remove default cursor everywhere */
+* {
+  cursor: none !important;
+}
+
+input, textarea {
+  cursor: none !important;
+}
+
 /* Subtle 3D geometric background */
 body::before,
 body::after {
