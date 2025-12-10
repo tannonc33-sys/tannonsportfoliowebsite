@@ -526,6 +526,26 @@ footer {
   cursor: default; /* not interactive yet */
 }
 
+/* Scroll hint bubble near cursor */
+#scroll-hint {
+  position: fixed;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(26, 19, 41, 0.95);
+  border: 1px solid rgba(139, 92, 246, 0.85);
+  color: #f9fafb;
+  font-size: 0.78rem;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(0, 0);
+  transition: opacity 200ms ease-out;
+  z-index: 999;
+}
+
+#scroll-hint.visible {
+  opacity: 1;
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 900px) {
