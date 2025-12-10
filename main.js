@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const pages = [
     "index.html",
     "about.html",
-    "portfolio.html",
+    "work.html",
     "resume.html",
     "contact.html",
   ];
