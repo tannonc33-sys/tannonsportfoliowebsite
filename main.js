@@ -144,11 +144,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Keep it visible for 30 seconds
     hideTimer = setTimeout(() => {
       hint.classList.remove("visible");
-    }, 30000); // 30 seconds
+    }, 10000); // 10 seconds
   };
 
   // Show after 15 seconds of no interaction
-  showTimer = setTimeout(showHint, 15000);
+  showTimer = setTimeout(showHint, 5000);
 
   const dismiss = () => {
     clearTimeout(showTimer);
