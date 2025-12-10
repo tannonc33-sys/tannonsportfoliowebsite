@@ -38,11 +38,47 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  position: relative;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* Subtle 3D geometric background */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Soft gradient "depth" blobs */
+body::before {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(139, 92, 246, 0.24), transparent 60%),
+    radial-gradient(circle at 82% 70%, rgba(56, 189, 248, 0.16), transparent 60%);
+  opacity: 0.8;
+}
+
+/* Very subtle grid / 3D plane feel */
+body::after {
+  background-image:
+    linear-gradient(
+      rgba(51, 36, 69, 0.4) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(51, 36, 69, 0.4) 1px,
+      transparent 1px
+    );
+  background-size: 140px 140px;
+  opacity: 0.18;
+  mix-blend-mode: soft-light;
 }
 
 /* HEADER (transparent) */
@@ -545,6 +581,49 @@ footer {
 
 #scroll-hint.visible {
   opacity: 1;
+}
+
+/* Custom cursor: dot + ring */
+body {
+  cursor: none; /* hide default cursor */
+}
+
+#cursor-dot,
+#cursor-ring {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+/* Inner dot */
+#cursor-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f9fafb;
+}
+
+/* Outer ring */
+#cursor-ring {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid rgba(249, 250, 251, 0.7);
+  transition:
+    width 140ms ease-out,
+    height 140ms ease-out,
+    border-color 140ms ease-out,
+    background-color 140ms ease-out,
+    transform 140ms ease-out;
+}
+
+/* Hover state: ripple / emphasis */
+#cursor-ring.cursor-ring-hover {
+  width: 38px;
+  height: 38px;
+  border-color: rgba(139, 92, 246, 0.9);
+  background-color: rgba(139, 92, 246, 0.16);
 }
 
 /* RESPONSIVE */

@@ -4,14 +4,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const pages = [
     "index.html",
     "about.html",
-    "work.html",
+    "portfolio.html",
     "resume.html",
     "contact.html",
   ];
 
   function getCurrentPage() {
     const path = window.location.pathname;
-    // last part of URL, or default to index.html
     const last = path.split("/").filter(Boolean).pop() || "index.html";
     return last;
   }
@@ -19,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentPage = getCurrentPage();
   const currentIndex = pages.indexOf(currentPage);
 
-  // If this page isn't in the list, don't do anything
   if (currentIndex === -1) return;
 
   let isTransitioning = false;
@@ -40,10 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
 
     if (e.deltaY > 0 && currentIndex < pages.length - 1) {
-      // down → next
       goTo(currentIndex + 1);
     } else if (e.deltaY < 0 && currentIndex > 0) {
-      // up → prev
       goTo(currentIndex - 1);
     }
   }
@@ -73,18 +69,60 @@ document.addEventListener("DOMContentLoaded", () => {
     touchStartY = null;
   });
 
+  // --- Custom cursor: dot + ring ---
+  const dot = document.getElementById("cursor-dot");
+  const ring = document.getElementById("cursor-ring");
+
+  if (dot && ring) {
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let ringX = mouseX;
+    let ringY = mouseY;
+
+    // Track mouse position
+    document.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      dot.style.left = mouseX + "px";
+      dot.style.top = mouseY + "px";
+    });
+
+    // Smooth ring follow
+    const render = () => {
+      const speed = 0.18; // lower = smoother/slower
+      ringX += (mouseX - ringX) * speed;
+      ringY += (mouseY - ringY) * speed;
+
+      ring.style.left = ringX + "px";
+      ring.style.top = ringY + "px";
+
+      requestAnimationFrame(render);
+    };
+    render();
+
+    // Enlarge ring on interactive elements
+    const hoverTargets = document.querySelectorAll("a, button, [data-cursor='hover']");
+    hoverTargets.forEach((el) => {
+      el.addEventListener("mouseenter", () => {
+        ring.classList.add("cursor-ring-hover");
+      });
+      el.addEventListener("mouseleave", () => {
+        ring.classList.remove("cursor-ring-hover");
+      });
+    });
+  }
+
   // --- Scroll hint logic ---
   const hint = document.getElementById("scroll-hint");
-  if (!hint) return; // if the hint element isn't on this page, skip the rest
+  if (!hint) return; // if there's no hint element, we're done
 
   let hintShown = false;
   let lastMouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 
-  // timers: one for when to show, one for how long it stays visible
   let showTimer = null;
   let hideTimer = null;
 
-  // Track mouse so we can place the hint near the cursor
+  // Keep track of mouse for placing the hint
   window.addEventListener("mousemove", (e) => {
     lastMouse.x = e.clientX;
     lastMouse.y = e.clientY;
@@ -103,16 +141,15 @@ document.addEventListener("DOMContentLoaded", () => {
     hint.style.top = `${lastMouse.y + 14}px`;
     hint.classList.add("visible");
 
-    // ⏱ keep it visible for 30 seconds, then auto-hide
+    // Keep it visible for 30 seconds
     hideTimer = setTimeout(() => {
       hint.classList.remove("visible");
-    }, 30000); // 30,000ms = 30 seconds
+    }, 30000); // 30 seconds
   };
 
-  // ⏱ show after 15 seconds of no interaction
+  // Show after 15 seconds of no interaction
   showTimer = setTimeout(showHint, 15000);
 
-  // Any interaction cancels timers + hides hint
   const dismiss = () => {
     clearTimeout(showTimer);
     clearTimeout(hideTimer);
