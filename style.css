@@ -385,6 +385,12 @@ main {
   background: #22c55e;
 }
 
+/* Resume Page */
+
+.resume-item-title {
+  color: var(--accent);
+}
+
 /* FOOTER */
 
 footer {
