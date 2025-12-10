@@ -4,14 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const pages = [
     "index.html",
     "about.html",
-    "work.html",
+    "portfolio.html",
     "resume.html",
     "contact.html",
   ];
 
   function getCurrentPage() {
     const path = window.location.pathname;
-    // get last part of URL, or default to index.html
+    // last part of URL, or default to index.html
     const last = path.split("/").filter(Boolean).pop() || "index.html";
     return last;
   }
@@ -30,30 +30,27 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = pages[index];
   }
 
-  // --- Scroll to change pages ---
+  // --- Scroll wheel → change pages ---
   function onWheel(e) {
     if (isTransitioning) return;
 
-    // Ignore tiny touchpad movements
     const threshold = 25;
     if (Math.abs(e.deltaY) < threshold) return;
 
-    // Prevent normal scroll, we are "page switching"
     e.preventDefault();
 
     if (e.deltaY > 0 && currentIndex < pages.length - 1) {
-      // Scroll down → next page
+      // down → next
       goTo(currentIndex + 1);
     } else if (e.deltaY < 0 && currentIndex > 0) {
-      // Scroll up → previous page
+      // up → prev
       goTo(currentIndex - 1);
     }
   }
 
-  // important: passive: false so we can preventDefault
   window.addEventListener("wheel", onWheel, { passive: false });
 
-  // --- Touch swipe support (optional, simple version) ---
+  // --- Touch swipe support (basic) ---
   let touchStartY = null;
 
   window.addEventListener("touchstart", (e) => {
@@ -76,14 +73,18 @@ document.addEventListener("DOMContentLoaded", () => {
     touchStartY = null;
   });
 
-  // --- Scroll hint near cursor after 15s ---
+  // --- Scroll hint logic ---
   const hint = document.getElementById("scroll-hint");
-  if (!hint) return;
+  if (!hint) return; // if the hint element isn't on this page, skip the rest
 
   let hintShown = false;
   let lastMouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 
-  // Track cursor so we can pop the hint near it
+  // timers: one for when to show, one for how long it stays visible
+  let showTimer = null;
+  let hideTimer = null;
+
+  // Track mouse so we can place the hint near the cursor
   window.addEventListener("mousemove", (e) => {
     lastMouse.x = e.clientX;
     lastMouse.y = e.clientY;
@@ -97,19 +98,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const showHint = () => {
     if (hintShown) return;
     hintShown = true;
+
     hint.style.left = `${lastMouse.x + 14}px`;
     hint.style.top = `${lastMouse.y + 14}px`;
     hint.classList.add("visible");
+
+    // ⏱ keep it visible for 30 seconds, then auto-hide
+    hideTimer = setTimeout(() => {
+      hint.classList.remove("visible");
+    }, 30000); // 30,000ms = 30 seconds
   };
 
-  // 15 second timer (15000 ms) – adjust this number if you want
-  const timer = setTimeout(showHint, 15000);
+  // ⏱ show after 15 seconds of no interaction
+  showTimer = setTimeout(showHint, 15000);
 
-  // Any interaction hides the hint and cancels timer
+  // Any interaction cancels timers + hides hint
   const dismiss = () => {
-    clearTimeout(timer);
-    if (!hintShown) return;
-    hint.classList.remove("visible");
+    clearTimeout(showTimer);
+    clearTimeout(hideTimer);
+
+    if (hintShown) {
+      hint.classList.remove("visible");
+    }
 
     window.removeEventListener("scroll", dismiss);
     window.removeEventListener("wheel", dismiss);
