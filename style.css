@@ -237,7 +237,7 @@ main {
 
 .hero-subtitle {
   font-size: 1rem;
-  color: #f4f4fb;
+  color: var(--accent-dark);
   margin-bottom: 0.5rem;
 }
 
@@ -515,6 +515,10 @@ footer {
 
 .about-layout{
   margin-right: 18px;
+}
+
+.section-title {
+  color: var(--accent-dark);
 }
 
 /* Portfolio viewer "nested sub-site" */
