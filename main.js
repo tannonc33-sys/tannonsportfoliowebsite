@@ -4,21 +4,27 @@ document.addEventListener("DOMContentLoaded", () => {
   const pages = [
     "index.html",
     "about.html",
-    "work.html",
+    "portfolio.html",
     "resume.html",
     "contact.html",
   ];
 
   function getCurrentPage() {
     const path = window.location.pathname;
-    const last = path.split("/").filter(Boolean).pop() || "index.html";
+    const segments = path.split("/").filter(Boolean);
+    const last = segments.pop();
+
+    // If there's no last segment (root) or it doesn't look like an .html file,
+    // treat it as index.html so GitHub Pages root works.
+    if (!last || !last.includes(".html")) {
+      return "index.html";
+    }
+
     return last;
   }
 
   const currentPage = getCurrentPage();
   const currentIndex = pages.indexOf(currentPage);
-
-  if (currentIndex === -1) return;
 
   let isTransitioning = false;
 
@@ -29,45 +35,47 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // --- Scroll wheel → change pages ---
-  function onWheel(e) {
-    if (isTransitioning) return;
+  if (currentIndex !== -1) {
+    function onWheel(e) {
+      if (isTransitioning) return;
 
-    const threshold = 25;
-    if (Math.abs(e.deltaY) < threshold) return;
+      const threshold = 25;
+      if (Math.abs(e.deltaY) < threshold) return;
 
-    e.preventDefault();
+      e.preventDefault();
 
-    if (e.deltaY > 0 && currentIndex < pages.length - 1) {
-      goTo(currentIndex + 1);
-    } else if (e.deltaY < 0 && currentIndex > 0) {
-      goTo(currentIndex - 1);
+      if (e.deltaY > 0 && currentIndex < pages.length - 1) {
+        goTo(currentIndex + 1);
+      } else if (e.deltaY < 0 && currentIndex > 0) {
+        goTo(currentIndex - 1);
+      }
     }
+
+    window.addEventListener("wheel", onWheel, { passive: false });
+
+    // --- Touch swipe support (basic) ---
+    let touchStartY = null;
+
+    window.addEventListener("touchstart", (e) => {
+      touchStartY = e.touches[0].clientY;
+    });
+
+    window.addEventListener("touchend", (e) => {
+      if (touchStartY === null || isTransitioning) return;
+
+      const dist = e.changedTouches[0].clientY - touchStartY;
+      const threshold = 40;
+      if (Math.abs(dist) < threshold) return;
+
+      if (dist < 0 && currentIndex < pages.length - 1) {
+        goTo(currentIndex + 1);
+      } else if (dist > 0 && currentIndex > 0) {
+        goTo(currentIndex - 1);
+      }
+
+      touchStartY = null;
+    });
   }
-
-  window.addEventListener("wheel", onWheel, { passive: false });
-
-  // --- Touch swipe support (basic) ---
-  let touchStartY = null;
-
-  window.addEventListener("touchstart", (e) => {
-    touchStartY = e.touches[0].clientY;
-  });
-
-  window.addEventListener("touchend", (e) => {
-    if (touchStartY === null || isTransitioning) return;
-
-    const dist = e.changedTouches[0].clientY - touchStartY;
-    const threshold = 40;
-    if (Math.abs(dist) < threshold) return;
-
-    if (dist < 0 && currentIndex < pages.length - 1) {
-      goTo(currentIndex + 1);
-    } else if (dist > 0 && currentIndex > 0) {
-      goTo(currentIndex - 1);
-    }
-
-    touchStartY = null;
-  });
 
   // --- Custom cursor: dot + ring ---
   const dot = document.getElementById("cursor-dot");
@@ -79,7 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let ringX = mouseX;
     let ringY = mouseY;
 
-    // Track mouse position
     document.addEventListener("mousemove", (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
@@ -87,9 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {
       dot.style.top = mouseY + "px";
     });
 
-    // Smooth ring follow
     const render = () => {
-      const speed = 0.18; // lower = smoother/slower
+      const speed = 0.18;
       ringX += (mouseX - ringX) * speed;
       ringY += (mouseY - ringY) * speed;
 
@@ -100,7 +106,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     render();
 
-    // Enlarge ring on interactive elements
     const hoverTargets = document.querySelectorAll("a, button, [data-cursor='hover']");
     hoverTargets.forEach((el) => {
       el.addEventListener("mouseenter", () => {
@@ -114,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Scroll hint logic ---
   const hint = document.getElementById("scroll-hint");
-  if (!hint) return; // if there's no hint element, we're done
+  if (!hint) return;
 
   let hintShown = false;
   let lastMouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
@@ -122,7 +127,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let showTimer = null;
   let hideTimer = null;
 
-  // Keep track of mouse for placing the hint
   window.addEventListener("mousemove", (e) => {
     lastMouse.x = e.clientX;
     lastMouse.y = e.clientY;
@@ -141,14 +145,12 @@ document.addEventListener("DOMContentLoaded", () => {
     hint.style.top = `${lastMouse.y + 14}px`;
     hint.classList.add("visible");
 
-    // Keep it visible for 30 seconds
     hideTimer = setTimeout(() => {
       hint.classList.remove("visible");
-    }, 10000); // 10 seconds
+    }, 30000); // 30 seconds visible
   };
 
-  // Show after 15 seconds of no interaction
-  showTimer = setTimeout(showHint, 5000);
+  showTimer = setTimeout(showHint, 15000); // show after 15 seconds
 
   const dismiss = () => {
     clearTimeout(showTimer);
