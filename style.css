@@ -108,12 +108,12 @@ body::after {
   gap: 0.6rem;
 }
 
-.nav-logo {
+/*.nav-logo {
   width: 30px;
   height: 30px;
   border-radius: 999px;
   background: var(--accent);
-}
+}*/
 
 .nav-title {
   display: flex;
