@@ -39,6 +39,13 @@ document.addEventListener("DOMContentLoaded", () => {
     function onWheel(e) {
       if (isTransitioning) return;
 
+      // If the wheel event happened inside a scrollable container, allow it
+      const scrollArea = e.target.closest(".portfolio-viewer-body");
+      if (scrollArea) {
+        const canScroll = scrollArea.scrollHeight > scrollArea.clientHeight;
+        if (canScroll) return; // let the box scroll normally
+      }
+
       const threshold = 25;
       if (Math.abs(e.deltaY) < threshold) return;
 
