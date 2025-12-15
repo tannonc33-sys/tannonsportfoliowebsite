@@ -593,7 +593,7 @@ footer {
   background: transparent;
 }
 
-/*.portfolio-viewer {
+.portfolio-viewer {
   border-radius: var(--radius-xl);
   background: var(--bg-soft);
   border: 1px solid var(--border);
@@ -603,7 +603,7 @@ footer {
   gap: 1rem;
 }
 
-.portfolio-viewer-header h2 {
+/*.portfolio-viewer-header h2 {
   font-size: 1.1rem;
   margin-bottom: 0.25rem;
 }
