@@ -528,6 +528,7 @@ footer {
   max-height: 200px;         /* adjust based on your layout */
   overflow-y: auto;
   padding-right: 6px;        /* so content doesn't sit under scrollbar */
+  padding-top: 6px;
 }
 
 /* 3 cards per row */
