@@ -37,6 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Scroll wheel → change pages ---
   if (currentIndex !== -1) {
     function onWheel(e) {
+      if (window.__CASE_MODAL_OPEN__) return;
+      
       if (isTransitioning) return;
 
       // If the wheel event happened inside a scrollable container, allow it
@@ -179,3 +181,70 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("touchstart", dismiss);
   window.addEventListener("click", dismiss);
 });
+
+(() => {
+  const modal = document.getElementById("caseModal");
+  const titleEl = document.getElementById("caseTitle");
+  const subtitleEl = document.getElementById("caseSubtitle");
+  const bodyEl = document.getElementById("caseBody");
+
+  // Add your cases here (start simple)
+  const CASES = {
+    andrea: {
+      title: "Andrea — Art Portfolio",
+      subtitle: "Brand + web portfolio site focused on clarity and calm browsing.",
+      bodyHtml: `
+        <div style="display:grid; gap:0.75rem;">
+          <img src="assets/images/portfolio/portview-thumb-a.jpg" alt="" style="width:100%; border-radius:12px; border:1px solid rgba(51,36,69,.8);" />
+          <p style="margin:0; opacity:.9;">
+            Add your case study content here: goals, role, tools, outcomes, links, screenshots.
+          </p>
+        </div>
+      `
+    }
+  };
+
+  function openCase(caseKey) {
+    const data = CASES[caseKey];
+    if (!data) return;
+
+    titleEl.textContent = data.title;
+    subtitleEl.textContent = data.subtitle;
+    bodyEl.innerHTML = data.bodyHtml;
+
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+
+    // IMPORTANT: if you have page-scroll-to-switch-pages, pause it while modal is open
+    window.__CASE_MODAL_OPEN__ = true;
+  }
+
+  function closeCase() {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+    bodyEl.innerHTML = "";
+
+    window.__CASE_MODAL_OPEN__ = false;
+  }
+
+  // Open on card click
+  document.addEventListener("click", (e) => {
+    const card = e.target.closest(".portfolio-card[data-case]");
+    if (!card) return;
+
+    e.preventDefault();
+    openCase(card.dataset.case);
+  });
+
+  // Close on backdrop or close button
+  modal.addEventListener("click", (e) => {
+    if (e.target.matches("[data-close]")) closeCase();
+  });
+
+  // Close on ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("is-open")) closeCase();
+  });
+})();

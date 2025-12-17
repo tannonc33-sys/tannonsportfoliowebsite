@@ -53,7 +53,7 @@
         <aside class="portfolio-viewer-body">
           <div class="portfolio-grid" id="portfolio-grid">
           <!-- Card 1 -->
-          <a class="portfolio-card" href="#" data-title="Andrea — Art Portfolio">
+          <a class="portfolio-card" href="#" data-title="Andrea — Art Portfolio" data-case="andrea">
             <div class="portfolio-thumb"><img src="assets/images/portfolio/portview-thumb-a.jpg" alt="Tannon - Portfolio Thumbnail A" loading="lazy"/></div>
             <div class="portfolio-card-meta">
               <div class="portfolio-card-title">Andrea — Art Portfolio</div>
@@ -62,7 +62,7 @@
           </a>
 
           <!-- Card 2 -->
-          <a class="portfolio-card" href="#" data-title="Local Services Concept">
+          <a class="portfolio-card" href="#" data-title="Local Services Concept" data-case="localservices">
             <div class="portfolio-thumb"><img src="assets/images/portfolio/portview-thumb-b.jpg" alt="Tannon - Portfolio Thumbnail B" loading="lazy"/></div>
             <div class="portfolio-card-meta">
               <div class="portfolio-card-title">Local Services Concept</div>
@@ -71,7 +71,7 @@
           </a>
 
           <!-- Card 3 -->
-          <a class="portfolio-card" href="#" data-title="Components Sandbox">
+          <a class="portfolio-card" href="#" data-title="Components Sandbox" data-case="andrea">
             <div class="portfolio-thumb"><img src="assets/images/portfolio/portview-thumb-c.jpg" alt="Tannon - Portfolio Thumbnail C" loading="lazy"/></div>
             <div class="portfolio-card-meta">
               <div class="portfolio-card-title">Components Sandbox</div>
@@ -80,7 +80,7 @@
           </a>
 
           <!-- Card 4 -->
-          <a class="portfolio-card" href="#" data-title="Components Sandbox">
+          <a class="portfolio-card" href="#" data-title="Components Sandbox" data-case="andrea">
             <div class="portfolio-thumb"><img src="assets/images/portfolio/portview-thumb-a.jpg" alt="Tannon - Portfolio Thumbnail A" loading="lazy"/></div>
             <div class="portfolio-card-meta">
               <div class="portfolio-card-title">Card 4</div>
@@ -89,7 +89,7 @@
           </a>
 
           <!-- Card 5 -->
-          <a class="portfolio-card" href="#" data-title="Components Sandbox">
+          <a class="portfolio-card" href="#" data-title="Components Sandbox" data-case="andrea">
             <div class="portfolio-thumb"><img src="assets/images/portfolio/portview-thumb-b.jpg" alt="Tannon - Portfolio Thumbnail B" loading="lazy"/></div>
             <div class="portfolio-card-meta">
               <div class="portfolio-card-title">Card 5</div>
@@ -98,7 +98,7 @@
           </a>
 
           <!-- Card 6 -->
-          <a class="portfolio-card" href="#" data-title="Components Sandbox">
+          <a class="portfolio-card" href="#" data-title="Components Sandbox" data-case="andrea">
             <div class="portfolio-thumb"><img src="assets/images/portfolio/portview-thumb-c.jpg" alt="Tannon - Portfolio Thumbnail C" loading="lazy"/></div>
             <div class="portfolio-card-meta">
               <div class="portfolio-card-title">Card 6</div>
@@ -107,7 +107,7 @@
           </a>
 
           <!-- Card 7 -->
-          <a class="portfolio-card" href="#" data-title="Components Sandbox">
+          <a class="portfolio-card" href="#" data-title="Components Sandbox" data-case="andrea">
             <div class="portfolio-thumb"><img src="assets/images/portfolio/portview-thumb-a.jpg" alt="Tannon - Portfolio Thumbnail A" loading="lazy"/></div>
             <div class="portfolio-card-meta">
               <div class="portfolio-card-title">Card 7 </div>
@@ -116,7 +116,7 @@
           </a>
 
           <!-- Card 8 -->
-          <a class="portfolio-card" href="#" data-title="Components Sandbox">
+          <a class="portfolio-card" href="#" data-title="Components Sandbox" data-case="andrea">
             <div class="portfolio-thumb"><img src="assets/images/portfolio/portview-thumb-b.jpg" alt="Tannon - Portfolio Thumbnail B" loading="lazy"/></div>
             <div class="portfolio-card-meta">
               <div class="portfolio-card-title">Card 8</div>
@@ -125,7 +125,7 @@
           </a>
 
           <!-- Card 9 -->
-          <a class="portfolio-card" href="#" data-title="Components Sandbox">
+          <a class="portfolio-card" href="#" data-title="Components Sandbox" data-case="andrea">
             <div class="portfolio-thumb"><img src="assets/images/portfolio/portview-thumb-c.jpg" alt="Tannon - Portfolio Thumbnail C" loading="lazy"/></div>
             <div class="portfolio-card-meta">
               <div class="portfolio-card-title">Card 9</div>
@@ -134,7 +134,7 @@
           </a>
 
           <!-- Card 10 -->
-          <a class="portfolio-card" href="#" data-title="Components Sandbox">
+          <a class="portfolio-card" href="#" data-title="Components Sandbox" data-case="andrea">
             <div class="portfolio-thumb"><img src="assets/images/portfolio/portview-thumb-a.jpg" alt="Tannon - Portfolio Thumbnail A" loading="lazy"/></div>
             <div class="portfolio-card-meta">
               <div class="portfolio-card-title">Card 10</div>
@@ -160,6 +160,23 @@
       </div>
     </div>
   </footer>
+  <!-- Full-screen case viewer -->
+  <div class="case-modal" id="caseModal" aria-hidden="true">
+    <div class="case-modal__backdrop" data-close></div>
+
+    <div class="case-modal__panel" role="dialog" aria-modal="true" aria-labelledby="caseTitle">
+      <button class="case-modal__close" type="button" data-close aria-label="Close case view">✕</button>
+
+      <div class="case-modal__content">
+        <h2 id="caseTitle" class="case-modal__title">Case title</h2>
+        <p class="case-modal__subtitle" id="caseSubtitle">Short description</p>
+
+        <div class="case-modal__body" id="caseBody">
+          <!-- JS injects case content here -->
+        </div>
+      </div>
+    </div>
+  </div>
 <div id="cursor-dot"></div>
 <div id="cursor-ring"></div>
 <div id="scroll-hint">Scroll to move between pages ↓</div>
