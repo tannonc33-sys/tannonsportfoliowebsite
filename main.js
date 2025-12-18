@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
       `
     }
 
-    andrea: {
+    andrea1: {
       title: "Andrea — Art Portfolio",
       subtitle: "Brand + web portfolio site focused on clarity and calm browsing.",
       bodyHtml: `
@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
       `
     }
 
-    andrea: {
+    andrea2: {
       title: "Andrea — Art Portfolio",
       subtitle: "Brand + web portfolio site focused on clarity and calm browsing.",
       bodyHtml: `
@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
       `
     }
 
-    andrea: {
+    andrea3: {
       title: "Andrea — Art Portfolio",
       subtitle: "Brand + web portfolio site focused on clarity and calm browsing.",
       bodyHtml: `
@@ -242,7 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
       `
     }
 
-    andrea: {
+    andrea4: {
       title: "Andrea — Art Portfolio",
       subtitle: "Brand + web portfolio site focused on clarity and calm browsing.",
       bodyHtml: `
@@ -255,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
       `
     }
 
-    andrea: {
+    andrea5: {
       title: "Andrea — Art Portfolio",
       subtitle: "Brand + web portfolio site focused on clarity and calm browsing.",
       bodyHtml: `
@@ -268,7 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
       `
     }
 
-    andrea: {
+    andrea6: {
       title: "Andrea — Art Portfolio",
       subtitle: "Brand + web portfolio site focused on clarity and calm browsing.",
       bodyHtml: `
@@ -281,7 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
       `
     }
 
-    andrea: {
+    andrea7: {
       title: "Andrea — Art Portfolio",
       subtitle: "Brand + web portfolio site focused on clarity and calm browsing.",
       bodyHtml: `
@@ -294,7 +294,7 @@ document.addEventListener("DOMContentLoaded", () => {
       `
     }
 
-    andrea: {
+    andrea8: {
       title: "Andrea — Art Portfolio",
       subtitle: "Brand + web portfolio site focused on clarity and calm browsing.",
       bodyHtml: `
@@ -307,7 +307,7 @@ document.addEventListener("DOMContentLoaded", () => {
       `
     }
 
-    andrea: {
+    andrea9: {
       title: "Andrea — Art Portfolio",
       subtitle: "Brand + web portfolio site focused on clarity and calm browsing.",
       bodyHtml: `
