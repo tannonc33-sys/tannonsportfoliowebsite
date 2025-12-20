@@ -191,8 +191,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Add your cases here (start simple)
   const CASES = {
     andrea: {
-      title: "Andrea — Art Portfolio",
-      subtitle: "Brand + web portfolio site focused on clarity and calm browsing.",
+      title: "Website Portfolio",
+      subtitle: "Brand + website portfolio focused on clarity and consistency.",
       bodyHtml: `
         <div style="display:grid; gap:0.75rem;">
           <img src="assets/images/portfolio/andreawebsiteportfolio.jpg" alt="" style="width:100%; border-radius:12px; border:1px solid rgba(51,36,69,.8);" />
