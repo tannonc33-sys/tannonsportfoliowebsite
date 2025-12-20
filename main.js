@@ -240,13 +240,6 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
           </div>
 
-          <aside class="case-right">
-            <h3 style="margin:0;">Project notes</h3>
-            <p style="margin:0; opacity:.9;">
-              Optional area for an overall project summary, tools used, timeline, or link buttons.
-            </p>
-          </aside>
-
         </div>
       `
     },
