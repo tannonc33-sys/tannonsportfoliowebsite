@@ -208,26 +208,44 @@ document.addEventListener("DOMContentLoaded", () => {
       bodyHtml: `
         <div class="case-split">
 
-          <!-- LEFT: images -->
-          <div class="case-media">
-            <img src="assets/images/portfolio/icafposter.jpg" alt="ICAF brand continuity poster" />
-            <img src="assets/images/portfolio/minimalisticposter.jpg" alt="Romeo and Juliet minimalist poster" />
+          <div class="case-left">
+            <div class="case-item">
+              <img class="case-img" src="assets/images/portfolio/icafposter.jpg" alt="ICAF event poster">
+              <div class="case-item-meta">
+                <h3 class="case-item-title">International Child Art Foundation — Event Poster</h3>
+                <p class="case-item-desc">
+                  Youth-focused event promo balancing playful illustration with clear hierarchy and readable type.
+                </p>
+                <ul class="case-bullets">
+                  <li><strong>Role:</strong> Illustration, layout, typography</li>
+                  <li><strong>Focus:</strong> Visual hierarchy, color harmony</li>
+                  <li><strong>Outcome:</strong> Clear, approachable event promotion</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="case-item">
+              <img class="case-img" src="assets/images/portfolio/minimalisticposter.jpg" alt="Romeo & Juliet minimalist poster">
+              <div class="case-item-meta">
+                <h3 class="case-item-title">Romeo & Juliet — Minimalist Poster</h3>
+                <p class="case-item-desc">
+                  Minimal silhouette concept built around a single metaphor (time) and strong typographic weight.
+                </p>
+                <ul class="case-bullets">
+                  <li><strong>Role:</strong> Concept, layout, typography</li>
+                  <li><strong>Focus:</strong> Contrast, negative space, readability</li>
+                  <li><strong>Outcome:</strong> Bold, clean theater promo direction</li>
+                </ul>
+              </div>
+            </div>
           </div>
 
-          <!-- RIGHT: description -->
-          <div class="case-notes">
-            <p>
-              These posters were designed for a youth-focused international arts
-              event. The goal was to balance playful energy with clarity, ensuring
-              the messaging remained accessible while visually engaging.
+          <aside class="case-right">
+            <h3 style="margin:0;">Project notes</h3>
+            <p style="margin:0; opacity:.9;">
+              Optional area for an overall project summary, tools used, timeline, or link buttons.
             </p>
-
-            <ul>
-              <li><strong>Role:</strong> Illustration, layout, typography</li>
-              <li><strong>Focus:</strong> Visual hierarchy, color harmony</li>
-              <li><strong>Outcome:</strong> Clear, approachable event promotion</li>
-            </ul>
-          </div>
+          </aside>
 
         </div>
       `

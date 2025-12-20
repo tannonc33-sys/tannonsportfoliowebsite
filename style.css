@@ -805,6 +805,16 @@ body.modal-open {
   margin-bottom: 0.35rem;
 }
 
+.case-img {
+  width: 100%;
+  height: auto;                 /* prevents top-cropping */
+  display: block;               /* removes tiny gaps */
+  border-radius: 12px;          /* consistent corners */
+  border: 1px solid rgba(51, 36, 69, 0.8);
+  object-fit: contain;          /* safety if height constraints ever happen */
+  background: rgba(14, 11, 22, 0.35); /* subtle frame if aspect ratios vary */
+}
+
 /* Stack on smaller screens */
 @media (max-width: 800px) {
   .case-split {
