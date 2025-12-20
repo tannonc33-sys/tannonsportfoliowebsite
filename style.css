@@ -772,6 +772,46 @@ body.modal-open {
   overflow: hidden;
 }
 
+/* Case viewer layout */
+.case-split {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1rem;
+}
+
+.case-media {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.case-media img {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(51, 36, 69, 0.8);
+}
+
+.case-notes {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  opacity: 0.95;
+}
+
+.case-notes ul {
+  margin-top: 0.75rem;
+  padding-left: 1.1rem;
+}
+
+.case-notes li {
+  margin-bottom: 0.35rem;
+}
+
+/* Stack on smaller screens */
+@media (max-width: 800px) {
+  .case-split {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 900px) {
