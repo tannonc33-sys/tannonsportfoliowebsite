@@ -815,9 +815,37 @@ body.modal-open {
   background: rgba(14, 11, 22, 0.35); /* subtle frame if aspect ratios vary */
 }
 
+.case-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* image | description */
+  gap: 1rem;
+  align-items: start;
+}
+
+.case-item-meta {
+  display: grid;
+  gap: 0.4rem;
+  align-content: start;
+}
+
+.case-item-title {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.case-item-desc {
+  margin: 0;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
 /* Stack on smaller screens */
 @media (max-width: 800px) {
   .case-split {
+    grid-template-columns: 1fr;
+  }
+
+  .case-item {
     grid-template-columns: 1fr;
   }
 }
