@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
       subtitle: "Brand + web portfolio site focused on clarity and calm browsing.",
       bodyHtml: `
         <div style="display:grid; gap:0.75rem;">
-          <img src="assets/images/portfolio/portview-thumb-a.jpg" alt="" style="width:100%; border-radius:12px; border:1px solid rgba(51,36,69,.8);" />
+          <img src="assets/images/portfolio/andreawebsiteportfolio.jpg" alt="" style="width:100%; border-radius:12px; border:1px solid rgba(51,36,69,.8);" />
           <p style="margin:0; opacity:.9;">
             Add your case study content here: goals, role, tools, outcomes, links, screenshots.
           </p>
