@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `
     },
-    andrea1: {
+    posters: {
       title: "2 Posters",
       subtitle: "2 posters that were created for their event.",
       bodyHtml: `
@@ -214,7 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `
     },
-    andrea2: {
+    basketballbrochure: {
       title: "Basketball Brochure",
       subtitle: "Informational Brochure for the timeline of basketball.",
       bodyHtml: `
