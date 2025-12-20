@@ -206,12 +206,29 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "2 Posters",
       subtitle: "2 posters that were created for their event.",
       bodyHtml: `
-        <div style="display:grid; gap:0.75rem;">
-          <img src="assets/images/portfolio/icafposter.jpg" alt="icaf brand continuity poster" style="width:50%; border-radius:12px; border:1px solid rgba(51,36,69,.8);" />
-          <img src="assets/images/portfolio/minimalisticposter.jpg" alt="romeo and juliet minimalistic poster" style="width:50%; border-radius:12px; border:1px solid rgba(51,36,69,.8);" />
-          <p style="margin:0; opacity:.9;">
-            Add your case study content here: goals, role, tools, outcomes, links, screenshots.
-          </p>
+        <div class="case-split">
+
+          <!-- LEFT: images -->
+          <div class="case-media">
+            <img src="assets/images/portfolio/icafposter.jpg" alt="ICAF brand continuity poster" />
+            <img src="assets/images/portfolio/minimalisticposter.jpg" alt="Romeo and Juliet minimalist poster" />
+          </div>
+
+          <!-- RIGHT: description -->
+          <div class="case-notes">
+            <p>
+              These posters were designed for a youth-focused international arts
+              event. The goal was to balance playful energy with clarity, ensuring
+              the messaging remained accessible while visually engaging.
+            </p>
+
+            <ul>
+              <li><strong>Role:</strong> Illustration, layout, typography</li>
+              <li><strong>Focus:</strong> Visual hierarchy, color harmony</li>
+              <li><strong>Outcome:</strong> Clear, approachable event promotion</li>
+            </ul>
+          </div>
+
         </div>
       `
     },
