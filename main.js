@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
       subtitle: "Brand + website portfolio focused on clarity and consistency.",
       bodyHtml: `
         <div style="display:grid; gap:0.75rem;">
-          <img src="assets/images/portfolio/andreawebsiteportfolio.jpg" alt="" style="width:100%; border-radius:12px; border:1px solid rgba(51,36,69,.8);" />
+          <img src="assets/images/portfolio/andreawebsiteportfolio.jpg" alt="home page of andreas portfolio website" style="width:100%; border-radius:12px; border:1px solid rgba(51,36,69,.8);" />
           <p style="margin:0; opacity:.9;">
             Add your case study content here: goals, role, tools, outcomes, links, screenshots.
           </p>
@@ -203,11 +203,11 @@ document.addEventListener("DOMContentLoaded", () => {
       `
     },
     andrea1: {
-      title: "Andrea — Art Portfolio",
-      subtitle: "Brand + web portfolio site focused on clarity and calm browsing.",
+      title: "2 Posters",
+      subtitle: "2 posters that were created for their event.",
       bodyHtml: `
         <div style="display:grid; gap:0.75rem;">
-          <img src="assets/images/portfolio/portview-thumb-a.jpg" alt="" style="width:100%; border-radius:12px; border:1px solid rgba(51,36,69,.8);" />
+          <img src="assets/images/portfolio/icafposter.jpg" img src="assets/images/portfolio/minimalisticposter.jpg" alt="2 posters showcasing different skill styles" style="width:100%; border-radius:12px; border:1px solid rgba(51,36,69,.8);" />
           <p style="margin:0; opacity:.9;">
             Add your case study content here: goals, role, tools, outcomes, links, screenshots.
           </p>
@@ -215,11 +215,11 @@ document.addEventListener("DOMContentLoaded", () => {
       `
     },
     andrea2: {
-      title: "Andrea — Art Portfolio",
-      subtitle: "Brand + web portfolio site focused on clarity and calm browsing.",
+      title: "Basketball Brochure",
+      subtitle: "Informational Brochure for the timeline of basketball.",
       bodyHtml: `
         <div style="display:grid; gap:0.75rem;">
-          <img src="assets/images/portfolio/portview-thumb-a.jpg" alt="" style="width:100%; border-radius:12px; border:1px solid rgba(51,36,69,.8);" />
+          <img src="assets/images/portfolio/basketballinside.jpg" img src="assets/images/portfolio/basketballoutside.jpg" alt="Informational brochure for the timeline of basketball" style="width:100%; border-radius:12px; border:1px solid rgba(51,36,69,.8);" />
           <p style="margin:0; opacity:.9;">
             Add your case study content here: goals, role, tools, outcomes, links, screenshots.
           </p>
