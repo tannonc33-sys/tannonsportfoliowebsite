@@ -220,8 +220,8 @@ document.addEventListener("DOMContentLoaded", () => {
       subtitle: "Informational Brochure for the timeline of basketball.",
       bodyHtml: `
         <div style="display:grid; gap:0.75rem;">
-          <img src="assets/images/portfolio/basketballinside.jpg" alt="Informational brochure for the timeline of basketball" style="width:100%; border-radius:12px; border:1px solid rgba(51,36,69,.8);" />
-          <img src="assets/images/portfolio/basketballoutside.jpg" alt="Informational brochure for the timeline of basketball" style="width:100%; border-radius:12px; border:1px solid rgba(51,36,69,.8);" />
+          <img src="assets/images/portfolio/basketballinside.jpg" alt="Informational brochure for the timeline of basketball" style="width:100%; height:50%; border-radius:12px; border:1px solid rgba(51,36,69,.8);" />
+          <img src="assets/images/portfolio/basketballoutside.jpg" alt="Informational brochure for the timeline of basketball" style="width:100%; height:50%; border-radius:12px; border:1px solid rgba(51,36,69,.8);" />
           <p style="margin:0; opacity:.9;">
             Add your case study content here: goals, role, tools, outcomes, links, screenshots.
           </p>
