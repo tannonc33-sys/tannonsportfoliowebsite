@@ -206,39 +206,55 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "2 Posters",
       subtitle: "2 posters that were created for their event.",
       bodyHtml: `
-        <div class="case-split">
+        <div class="case-stack">
 
-          <div class="case-left">
-            <div class="case-item">
-              <img class="case-img" src="assets/images/portfolio/icafposter.jpg" alt="ICAF event poster">
-              <div class="case-item-meta">
-                <h3 class="case-item-title">International Child Art Foundation — Event Poster</h3>
-                <p class="case-item-desc">
-                  Youth-focused event promo balancing playful illustration with clear hierarchy and readable type.
-                </p>
-                <ul class="case-bullets">
-                  <li><strong>Role:</strong> Illustration, layout, typography</li>
-                  <li><strong>Focus:</strong> Visual hierarchy, color harmony</li>
-                  <li><strong>Outcome:</strong> Clear, approachable event promotion</li>
-                </ul>
-              </div>
-            </div>
+          <!-- Poster 1 row -->
+          <article class="case-row">
+            <figure class="case-media">
+              <img
+                class="case-img"
+                src="assets/images/portfolio/icafposter.jpg"
+                alt="International Child Art Foundation event poster"
+              />
+            </figure>
 
-            <div class="case-item">
-              <img class="case-img" src="assets/images/portfolio/minimalisticposter.jpg" alt="Romeo & Juliet minimalist poster">
-              <div class="case-item-meta">
-                <h3 class="case-item-title">Romeo & Juliet — Minimalist Poster</h3>
-                <p class="case-item-desc">
-                  Minimal silhouette concept built around a single metaphor (time) and strong typographic weight.
-                </p>
-                <ul class="case-bullets">
-                  <li><strong>Role:</strong> Concept, layout, typography</li>
-                  <li><strong>Focus:</strong> Contrast, negative space, readability</li>
-                  <li><strong>Outcome:</strong> Bold, clean theater promo direction</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+            <section class="case-copy">
+              <h3 class="case-title">International Child Art Foundation — Event Poster</h3>
+              <p class="case-desc">
+                Youth-focused event promo balancing playful illustration with clear hierarchy and readable type.
+              </p>
+
+              <ul class="case-points">
+                <li><strong>Role:</strong> Illustration, layout, typography</li>
+                <li><strong>Focus:</strong> Visual hierarchy, color harmony</li>
+                <li><strong>Outcome:</strong> Clear, approachable event promotion</li>
+              </ul>
+            </section>
+          </article>
+
+          <!-- Poster 2 row -->
+          <article class="case-row">
+            <figure class="case-media">
+              <img
+                class="case-img"
+                src="assets/images/portfolio/minimalisticposter.jpg"
+                alt="Romeo & Juliet minimalist poster"
+              />
+            </figure>
+
+            <section class="case-copy">
+              <h3 class="case-title">Romeo & Juliet — Minimalist Poster</h3>
+              <p class="case-desc">
+                Minimal silhouette concept built around a single metaphor (time) and strong typographic weight.
+              </p>
+
+              <ul class="case-points">
+                <li><strong>Role:</strong> Concept, layout, typography</li>
+                <li><strong>Focus:</strong> Contrast, negative space, readability</li>
+                <li><strong>Outcome:</strong> Bold, clean theater promo direction</li>
+              </ul>
+            </section>
+          </article>
 
         </div>
       `

@@ -772,80 +772,73 @@ body.modal-open {
   overflow: hidden;
 }
 
-/* Case viewer layout */
-.case-split {
+/* =========================
+   Case viewer layout (2-col)
+   ========================= */
+
+/* Wrapper for multiple rows */
+.case-stack {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 1rem;
+  gap: 1.25rem; /* SPACE BETWEEN PROJECT ITEMS */
 }
 
-.case-media {
+/* One project row: image (left) + text (right) */
+.case-row {
   display: grid;
-  gap: 0.75rem;
-}
-
-.case-media img {
-  width: 100%;
-  border-radius: 12px;
-  border: 1px solid rgba(51, 36, 69, 0.8);
-}
-
-.case-notes {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  opacity: 0.95;
-}
-
-.case-notes ul {
-  margin-top: 0.75rem;
-  padding-left: 1.1rem;
-}
-
-.case-notes li {
-  margin-bottom: 0.35rem;
-}
-
-.case-img {
-  width: 100%;
-  height: auto;                 /* prevents top-cropping */
-  display: block;               /* removes tiny gaps */
-  border-radius: 12px;          /* consistent corners */
-  border: 1px solid rgba(51, 36, 69, 0.8);
-  object-fit: contain;          /* safety if height constraints ever happen */
-  background: rgba(14, 11, 22, 0.35); /* subtle frame if aspect ratios vary */
-}
-
-.case-item {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* image | description */
-  gap: 1rem;
+  grid-template-columns: 1fr 1fr; /* IMAGE HALF / TEXT HALF */
+  gap: 1.25rem;                  /* GAP BETWEEN IMAGE + TEXT */
   align-items: start;
 }
 
-.case-item-meta {
+/* LEFT SIDE (IMAGE COLUMN) */
+.case-media {
+  margin: 0;
+}
+
+/* The image itself */
+.case-img {
+  width: 100%;
+  height: auto;              /* prevents top cropping */
+  display: block;            /* fixes weird gaps */
+  border-radius: 12px;       /* consistent corners (fixes your sharp top issue) */
+  border: 1px solid rgba(51, 36, 69, 0.8);
+  background: rgba(14, 11, 22, 0.35); /* subtle frame */
+}
+
+/* RIGHT SIDE (TEXT COLUMN) */
+.case-copy {
   display: grid;
-  gap: 0.4rem;
-  align-content: start;
+  gap: 0.6rem;
 }
 
-.case-item-title {
-  margin: 0;
-  font-size: 1rem;
+/* Labels so you know exactly what to tweak */
+.case-title {
+  margin: 0;                 /* adjust title spacing */
+  font-size: 1.05rem;        /* adjust title size */
+  line-height: 1.25;
 }
 
-.case-item-desc {
-  margin: 0;
+.case-desc {
+  margin: 0;                 /* adjust paragraph spacing */
   opacity: 0.9;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
-/* Stack on smaller screens */
-@media (max-width: 800px) {
-  .case-split {
-    grid-template-columns: 1fr;
-  }
+/* Bullet list */
+.case-points {
+  margin: 0.25rem 0 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.35rem;
+}
 
-  .case-item {
+.case-points li {
+  opacity: 0.95;
+}
+
+/* Mobile: stack image above text */
+@media (max-width: 800px) {
+  .case-row {
     grid-template-columns: 1fr;
   }
 }
