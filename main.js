@@ -263,12 +263,56 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Basketball Brochure",
       subtitle: "Informational Brochure for the timeline of basketball.",
       bodyHtml: `
-        <div style="display:grid; gap:0.75rem;">
-          <img src="assets/images/portfolio/basketballinside.jpg" alt="Informational brochure for the timeline of basketball" height:50%; border-radius:12px; border:1px solid rgba(51,36,69,.8);" />
-          <img src="assets/images/portfolio/basketballoutside.jpg" alt="Informational brochure for the timeline of basketball" height:50%; border-radius:12px; border:1px solid rgba(51,36,69,.8);" />
-          <p style="margin:0; opacity:.9;">
-            Add your case study content here: goals, role, tools, outcomes, links, screenshots.
-          </p>
+        <div class="case-stack">
+
+          <!-- Poster 1 row -->
+          <article class="case-row">
+            <figure class="case-media">
+              <img
+                class="case-img"
+                src="assets/images/portfolio/basketballoutside.jpg"
+                alt="Outside basketball brochure"
+              />
+            </figure>
+
+            <section class="case-copy">
+              <h3 class="case-title">Outside basketball brochure</h3>
+              <p class="case-desc">
+                Carefully thought out outside basketball brochure with a focus on visual hierarchy and clear information.
+              </p>
+
+              <ul class="case-points">
+                <li><strong>Role:</strong> Illustration, layout, typography</li>
+                <li><strong>Focus:</strong> Visual hierarchy, color harmony</li>
+                <li><strong>Outcome:</strong> Clear, approachable event promotion</li>
+              </ul>
+            </section>
+          </article>
+
+          <!-- Poster 2 row -->
+          <article class="case-row">
+            <figure class="case-media">
+              <img
+                class="case-img"
+                src="assets/images/portfolio/basketballinside.jpg"
+                alt="Inside basketball brochure"
+              />
+            </figure>
+
+            <section class="case-copy">
+              <h3 class="case-title">Inside basketball brochure</h3>
+              <p class="case-desc">
+                Inside the basketball brochure carrying a focus on visual hierarchy and clear information.
+              </p>
+
+              <ul class="case-points">
+                <li><strong>Role:</strong> Concept, layout, typography</li>
+                <li><strong>Focus:</strong> Contrast, negative space, readability</li>
+                <li><strong>Outcome:</strong> Bold, clean theater promo direction</li>
+              </ul>
+            </section>
+          </article>
+
         </div>
       `
     },
