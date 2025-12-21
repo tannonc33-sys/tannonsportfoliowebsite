@@ -194,11 +194,31 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Website Portfolio",
       subtitle: "Brand + website portfolio focused on clarity and consistency.",
       bodyHtml: `
-        <div style="display:grid; gap:0.75rem;">
-          <img src="assets/images/portfolio/andreawebsiteportfolio.jpg" alt="home page of andreas portfolio website" style="width:100%; border-radius:12px; border:1px solid rgba(51,36,69,.8);" />
-          <p style="margin:0; opacity:.9;">
-            Add your case study content here: goals, role, tools, outcomes, links, screenshots.
-          </p>
+        <div class="case-stack">
+
+          <!-- Poster 1 row -->
+          <article class="case-row">
+            <figure class="case-media">
+              <img
+                class="case-img"
+                src="assets/images/portfolio/andreawebsiteportfolio.jpg"
+                alt="Andrea's website portfolio"
+              />
+            </figure>
+
+            <section class="case-copy">
+              <h3 class="case-title">Website Portfolio</h3>
+              <p class="case-desc">
+                Portfolio website that captures the mood and personality of an artist's work.
+              </p>
+
+              <ul class="case-points">
+                <li><strong>Role:</strong> Illustration, layout, typography</li>
+                <li><strong>Focus:</strong> Visual hierarchy, color harmony</li>
+                <li><strong>Outcome:</strong> Clear, approachable event promotion</li>
+              </ul>
+            </section>
+          </article>
         </div>
       `
     },
@@ -255,7 +275,6 @@ document.addEventListener("DOMContentLoaded", () => {
               </ul>
             </section>
           </article>
-
         </div>
       `
     },
@@ -312,7 +331,6 @@ document.addEventListener("DOMContentLoaded", () => {
               </ul>
             </section>
           </article>
-
         </div>
       `
     },
